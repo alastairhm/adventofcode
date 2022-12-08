@@ -5,7 +5,7 @@ def pathname(path):
 
 def process():
     files = {"Test" : "input_test.txt",
-         "Real" : "input_real.txt"
+        #  "Real" : "input_real.txt"
 }
 
     for key in files.keys():
@@ -42,8 +42,19 @@ def parse(commands):
                 else:
                     directory[current] = int(command[0])
     print()
+    print(directory)
+    tree = []
     for path in directory:
-            print(path, directory[path])
+        tree.append(path)
+    sorted_tree = sorted(tree, key=lambda el: len(el))[::-1]
+    for key in sorted_tree:
+        for p2 in sorted_tree:
+            if p2 != key:
+                # print(key, p2)
+                if p2 in key:
+                    # print(" sub")
+                    directory[p2] += directory[key]
+    print(directory)
 
 if __name__ == "__main__":
     process()
