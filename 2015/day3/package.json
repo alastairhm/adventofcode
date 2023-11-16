@@ -1,0 +1,16 @@
+{
+  "name": "day3",
+  "version": "1.0.0",
+  "description": "Advent of Code 2015 Day 3",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Alastair Montgomery",
+  "license": "ISC",
+  "dependencies": {
+    "victor": "^1.1.0"
+  }
+}
