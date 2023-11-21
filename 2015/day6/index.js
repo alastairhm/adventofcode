@@ -59,12 +59,12 @@ function update(array, coords, action){
   return array;
 }
 
-function on(value){
+function on(){
   // console.log('On', value);
   return 1;
 }
 
-function off(value){
+function off(){
   // console.log('Off', value);
   return 0;
 }
@@ -81,10 +81,8 @@ function coords(instruction){
 function process(array){
   console.log('Instruction length =',array.length);
   let lights = newArray(1000,1000,0);
-  let sum = 0;
   for (const line of array){
     if (line.length > 0) {lights = parse(lights, line);}
-    sum=lit(lights);
   }
   console.log('Number of lit lights',lit(lights));
 }
