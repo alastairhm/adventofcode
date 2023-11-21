@@ -8,7 +8,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function newArray(x,y,v){
-  let myArray = Array.from(Array(x), () => new Array(y));
+  let myArray = new Array(x);
+  for (let i=0; i<x; i++){
+    myArray[i] = new Array(y);
+  }
+
   for (let i=0; i<x; i++){
     for (let j=0; j<y; j++){
       myArray[i][j] = v;
@@ -77,13 +81,16 @@ function coords(instruction){
 function process(array){
   console.log('Instruction length =',array.length);
   let lights = newArray(1000,1000,0);
+  let sum = 0;
   for (const line of array){
-    lights = parse(lights, line);
+    if (line.length > 0) {lights = parse(lights, line);}
+    sum=lit(lights);
   }
   console.log('Number of lit lights',lit(lights));
 }
 
-const filename = ["test.txt","input.txt"];
+//const filename = ["test.txt"];
+const filename = ["input.txt"];
 
 for ( const current of filename){
     const array = tools.readData(path.join(__dirname,current));
