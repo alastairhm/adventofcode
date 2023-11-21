@@ -40,6 +40,10 @@ function parse(array, instruction){
   return array;
 }
 
+function onoff(array,coords,action){
+
+}
+
 function coords(instruction){
   return instruction.match(/[0-9]{1,3}/g);
 }
