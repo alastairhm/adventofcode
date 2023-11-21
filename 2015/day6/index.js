@@ -28,20 +28,46 @@ function lit(array){
 }
 
 function parse(array, instruction){
-  console.log(instruction);
+  // console.log(instruction);
   const rect = coords(instruction);
   if (instruction.includes("toggle")) {
-    console.log('Toggle');
+    array = update(array, rect, toggle);
   } else if (instruction.includes("on")) {
-    console.log('On');
+    array = update(array, rect, on);
   } else {
-    console.log("Off");
+    array = update(array, rect, off);
   }
   return array;
 }
 
-function onoff(array,coords,action){
+function update(array, coords, action){
+  // console.log(coords);
+  const x1 = Number(coords[0]);
+  const y1 = Number(coords[1]);
+  const x2 = Number(coords[2]);
+  const y2 = Number(coords[3]);
+  // console.log(x1,y1,x2,y2);
+  for (let x = x1; x <= x2; x++){
+    for (let y = y1; y <= y2; y++){
+      array[x][y] = action(array[x][y]);
+    }
+  }
+  return array;
+}
 
+function on(value){
+  // console.log('On', value);
+  return 1;
+}
+
+function off(value){
+  // console.log('Off', value);
+  return 0;
+}
+
+function toggle(value){
+  // console.log('Toggle', value);
+  return 1 - value;
 }
 
 function coords(instruction){
@@ -57,7 +83,7 @@ function process(array){
   console.log('Number of lit lights',lit(lights));
 }
 
-const filename = ["test.txt"];
+const filename = ["test.txt","input.txt"];
 
 for ( const current of filename){
     const array = tools.readData(path.join(__dirname,current));
