@@ -2,7 +2,8 @@
 
 def process():
     files = {"Test" : "input_test.txt",
-         "Real" : "input_real.txt"}
+         "Real" : "input_real.txt",
+         "New" : "input2.txt"}
 
     for key in files.keys():
         print(key)

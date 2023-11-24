@@ -1,6 +1,6 @@
 elf = []
 
-f = open("input.txt","r")
+f = open("input2.txt","r")
 lines = f.readlines()
 
 total = 0

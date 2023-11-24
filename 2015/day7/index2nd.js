@@ -37,22 +37,37 @@ function checkRange(i){
   return((i%n)+n)%n;
 }
 
+function calculate(rawWires){
+  let processed = new Map();
+  for (let wire of rawWires){
+    console.log(wire,Number(wire[1]));
+    processed.set(wire[0],parseSource(wire[1],rawWires));
+  }
+  return processed;
+}
+
+function dumpWires(wires){
+  for (let element of wires){
+    console.log("Wire",element[0],'Value',element[1]);
+  }
+}
+
 function process(array){
   console.log('Instruction length =',array.length);
-  let wires = new Map();
+  let rawWires = new Map();
   for (const line of array){
     let source = line.substring(0,line.indexOf("->"));
     let destination = line.substring(line.indexOf("->")+3);
-    wires.set(destination, parseSource(source,wires));
+    rawWires.set(destination, source.trim());
   }
-  for (let element of wires){
-    console.log("Wire",element[0],element[1]);
-  }
-  console.log("Wire a", wires.get('lx'));
+  dumpWires(rawWires);
+  let wires = calculate(rawWires);
+  dumpWires(wires);
+  // console.log("Wire a", wires.get('a'));
 }
 
-// const filename = ["test.txt"];
-const filename = ["input.txt"];
+const filename = ["test.txt"];
+// const filename = ["input.txt"];
 
 for ( const current of filename){
     const array = tools.readData(path.join(__dirname,current));
