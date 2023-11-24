@@ -1,8 +1,8 @@
 import numpy as np
 
-elf = np.array()
+elf = np.array([])
 
-f = open("input.txt","r")
+f = open("input2.txt","r")
 lines = f.readlines()
 
 total = 0
