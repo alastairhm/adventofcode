@@ -2,11 +2,15 @@
   "name": "day1",
   "version": "1.0.0",
   "description": "Advent of Code 2023 Day 1",
-  "main": "index.js",
+  "main": "index_p2.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Alastair Montgomery",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.1.0"
+  }
 }
