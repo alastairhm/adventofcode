@@ -10,7 +10,7 @@ with open('input.txt', 'r') as f:
 copies = np.ones(len(all_games))
 
 for idx, game in enumerate(all_games):
-
+    print(copies)
     game = game[game.find(':') + 2:].rstrip()
 
     set_of_nums = game.split('|')
