@@ -1,7 +1,7 @@
 {
-  "name": "day3",
+  "name": "day7",
   "version": "1.0.0",
-  "description": "Advent of Code 2023 Day 3",
+  "description": "Advent of Code 2023 Day 7",
   "main": "index_p2.js",
   "type": "module",
   "scripts": {
@@ -11,6 +11,10 @@
   "author": "Alastair Montgomery",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.55.0",
     "prettier": "3.1.0"
+  },
+  "dependencies": {
+    "set": "^1.1.1"
   }
 }
